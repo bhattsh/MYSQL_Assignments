@@ -1,0 +1,12 @@
+			COMPLEX SQL
+
+
+1)	WRITE A SQL STATEMENT TO DISPLAY THE LOWEST PAID EMPLOYEE'S (NAME , SALARY , DEPARTMENT NAME)
+
+query:  SELECT e.first_name, MIN(e.salary) AS min_salary, d.department_name FROM employees e JOIN departments AS d ON d.department_id=e.department_id ;
+
+
+
+2).  
+query:    SELECT DISTINCT(e.department_id), MIN(f.salary) FROM employees e INNER JOIN employees AS f ON e.department_id =f.department_id;
+  
