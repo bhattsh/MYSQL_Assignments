@@ -7,6 +7,60 @@ query:  SELECT e.first_name, MIN(e.salary) AS min_salary, d.department_name FROM
 
 
 
-2).  
-query:    SELECT DISTINCT(e.department_id), MIN(f.salary) FROM employees e INNER JOIN employees AS f ON e.department_id =f.department_id;
-  
+		2)	LIST MINIMUM SALARY FOR EACH DEPARTMENT
+
+		query:  SELECT MIN(salary),department_id FROM employees GROUP BY department_id;
+
+
+
+
+3)	WRITE A QUERY  BASED ON  FOLLOWING RESULT. 
+
+
+
+SELECT e.employee_id, e.first_name, e.job_id, e.salary, e.department_id, d.department_name FROM employees e JOIN departments AS d ON d.department_id=e.department_id;
+
+
+4)	LIST ALL THE EMPLOYEES WHO ARE WORKING IN FORD’S DEPARTMENT.
+
+SELECT e.employee_id, e.first_name, d.department_name FROM employees e JOIN departments AS d ON e.department_id = d.department_id WHERE d.department_name = 'ford';
+
+
+
+5)	LIST ALL EMPLOYEE WHO ARE WORKING IN WARD'S DEPARTMENT AND
+	EARNING MORE THEN MARTIN
+
+ SELECT e.employee_id,e.first_name, e.salary, d.department_name FROM employees e JOIN departments AS d
+    -> ON e.department_id =d.department_id WHERE d.department_id =50
+    -> AND e.salary> ANY(SELECT salary FROM employees WHERE first_name='jean');
+
+
+6) DISPLAY EMPLOYEE NUMBER, NAME,DEPT NUMBER, DEPT NAME, AND LOCATION
+
+ SELECT e.employee_id, e.first_name, e.department_id, d.department_name, l.city FROM employees e
+    ->  JOIN departments AS d ON e.department_id = d.department_id
+    ->  JOIN
+    -> locations AS l ON d.location_id = l.location_id;
+
+
+7)	DISPLAY THE FOLLOWING RESULT
+
+10	ACCOUNTING	CLARK
+10	ACCOUNTING	KING
+10	ACCOUNTING	MILLER
+20	RESEARCH	JONES
+20	RESEARCH	FORD
+20	RESEARCH	ADAMS
+20	RESEARCH	SMITH
+20	RESEARCH	SCOTT
+30	SALES		WARD
+30	SALES		TURNER
+30	SALES		ALLEN
+30	SALES		JAMES
+30	SALES		BLAKE
+30	SALES		MARTIN
+
+
+SELECT d.department_name, d.department_id,
+
+
